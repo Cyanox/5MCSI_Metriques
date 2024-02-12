@@ -4,8 +4,6 @@ from flask import json
 from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
-import requests
-
 
 # Maj repo
 app = Flask(__name__)
@@ -34,7 +32,7 @@ def meteo():
         results.append({'Jour': dt_value, 'temp': temp_day_value})
     return jsonify(results=results)
 
-
+# https://api.github.com/repos/Cyanox/5MCSI_Metriques/commits
 @app.route("/rapport/")
 def mongraphique():
     return render_template("graphique.html")
@@ -44,10 +42,6 @@ def mongraphique():
 def monhistogramme():
     return render_template("histogramme.html")
 
-
-@app.route("/commit/")
-def moncommit():
-    return render_template("commit.html")
 
 
 
