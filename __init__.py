@@ -33,7 +33,7 @@ def meteo():
     return jsonify(results=results)
 
 
-@app.route('/commits/')
+@app.route('/commitsdata/')
 def get_commits():
     url = 'https://api.github.com/repos/Cyanox/5MCSI_Metriques/commits'
     response = urlopen(url)
