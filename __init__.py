@@ -48,21 +48,6 @@ def monhistogramme():
     return render_template("histogramme.html")
 
 
-@app.route('/commitsdata/')
-def commits():
-    response = urlopen(
-        'https://api.github.com/repos/Cyanox/5MCSI_Metriques/commits')
-    raw_content = response.read()
-    json_content = json.loads(raw_content.decode('utf-8'))
-    results = []
-    for list_element in json_content:
-        dt_value = list_element.get('commit', {}).get('author', {}).get('date', {})
-        date_object = datetime.strptime(dt_value, '%Y-%m-%dT%H:%M:%SZ')
-        minutes = date_object.minute
-        results.append({'minutes': minutes})
-    return jsonify(results=results)
-
-
 @app.route("/commits/")
 def mescommits():
     return render_template("commits.html")
