@@ -13,7 +13,7 @@
     function drawChart(data) {
     // Convertir les données récupérées en un tableau utilisable par Google Charts
     var dataTable = new google.visualization.DataTable();
-    dataTable.addColumn('string', 'Date');
+    dataTable.addColumn('string', 'minute');
     dataTable.addColumn('number', 'Valeur');
     data.results.forEach(entry => {
       var date = new Date(entry.Jour * 1000);
@@ -29,7 +29,7 @@
     chart.draw(dataTable, options);
   }
   // Récupération de données depuis notre API /paris/
-  fetch('/extract-minutes/')
+  fetch('/commitsdata/')
     .then(response => response.json())
     .then(data => {
       drawChart(data);
