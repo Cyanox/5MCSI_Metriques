@@ -10,6 +10,13 @@
         google.charts.setOnLoadCallback(drawChart);
 
         function drawChart() {
+            // Récupération de données depuis notre API /commitsdata/
+            fetch('/commitsdata/')
+                .then(response => response.json())
+                .then(data => {
+                    drawChart(data);
+                })
+
             // Convertir les données JSON en tableau
             var data = google.visualization.arrayToDataTable({{ data }});
 
