@@ -4,8 +4,6 @@ from flask import json
 from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
-import requests
-
 
 # Maj repo
 app = Flask(__name__)
@@ -35,6 +33,24 @@ def meteo():
     return jsonify(results=results)
 
 
+@app.route('/commits/')
+def get_commits():
+    url = 'https://api.github.com/repos/Cyanox/5MCSI_Metriques/commits'
+    response = urlopen(url)
+    raw_content = response.read()
+    json_content = json.loads(raw_content.decode('utf-8'))
+
+    commit_minutes = {}
+    for commit in json_content:
+        commit_time = datetime.strptime(commit['commit']['author']['date'], "%Y-%m-%dT%H:%M:%SZ")
+        minute = commit_time.minute
+        commit_minutes[minute] = commit_minutes.get(minute, 0) + 1
+
+    results = [{'minute': minute, 'commits': count} for minute, count in commit_minutes.items()]
+
+    return jsonify(results=results)
+
+# https://api.github.com/repos/Cyanox/5MCSI_Metriques/commits
 @app.route("/rapport/")
 def mongraphique():
     return render_template("graphique.html")
@@ -44,10 +60,10 @@ def mongraphique():
 def monhistogramme():
     return render_template("histogramme.html")
 
+@app.route("/commits/")
+def mescommits():
+    return render_template("commits.html")
 
-@app.route("/commit/")
-def moncommit():
-    return render_template("commit.html")
 
 
 

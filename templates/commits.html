@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Histogramme de Commits</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+    <script>
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawHistogram);
+
+      function drawHistogram() {
+        function drawChart(data) {
+          // Convertir les données récupérées en un tableau utilisable par Google Charts
+          var dataTable = new google.visualization.DataTable();
+          dataTable.addColumn('string', 'Minute');
+          dataTable.addColumn('number', 'Commits');
+          data.results.forEach(entry => {
+            dataTable.addRow([entry.minute.toString(), entry.commits]);
+          });
+
+          // Configurer les options du graphique en ligne
+          var options = {
+            title: 'Nombre de Commits par Minute',
+            legend: { position: 'none' },
+            hAxis: { title: 'Minute' },
+            vAxis: { title: 'Commits' }
+          };
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+          chart.draw(dataTable, options);
+        }
+
+        // Récupération de données depuis notre API /commits/
+        fetch('/commits/')
+          .then(response => response.json())
+          .then(data => {
+            drawChart(data);
+          })
+          .catch(error => console.error('Erreur lors de la récupération des données:', error));
+      }
+    </script>
+  </body>
+</html>
