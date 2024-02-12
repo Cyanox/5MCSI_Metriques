@@ -43,11 +43,6 @@ def monhistogramme():
     return render_template("histogramme.html")
 
 
-@app.route("/histogramme/")
-def monhistogramme():
-    return render_template("histogramme.html")
-
-
 @app.route("/commits/")
 def mescommits():
     return render_template("commits.html")
