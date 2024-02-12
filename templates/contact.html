@@ -7,84 +7,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
-<body class="d-flex align-items-center py-4 bg-body-tertiary">
-    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-      <symbol id="check2" viewBox="0 0 16 16">
-        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
-      </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-      </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
-        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-      </symbol>
-      <symbol id="sun-fill" viewBox="0 0 16 16">
-        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-      </symbol>
-    </svg>
+<div class="container">
+    <div class="row mt-5">
+    <div class="mb-3">
+      <label for="basic-url" class="form-label fw-semibold">Informations ultra importantes</label>
+      <div class="input-group">
+        <span class="input-group-text">Prénom</span>
+      <input type="text" class="form-control" placeholder="Boris" aria-label="Username">
 
-    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (dark)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="dark" aria-pressed="true">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
+      <input type="text" class="form-control" placeholder="Stocker" aria-label="Server">
+                <span class="input-group-text">Nom</span>
+      </div>
+      <div class="form-text" id="basic-addon4">Il est beau mon formulaire, non ?</div>
+    </div></div>
+
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Message</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
     </div>
+        <button type="submit" class="btn btn-primary mb-3">Envoyer !</button>
 
-
-<main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="data:image/jpeg;base64,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" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
-    </div>
-
-    <div class="form-check text-start my-3">
-      <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Remember me
-      </label>
-    </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
-    <p class="mt-5 mb-3 text-body-secondary">© 2017–2023</p>
-  </form>
-</main>
-<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-
-
-</body>
-
+</div>
 </body>
 </html>
