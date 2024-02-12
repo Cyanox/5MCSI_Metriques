@@ -57,8 +57,9 @@ def commits():
     results = []
     for list_element in json_content:
         dt_value = list_element.get('commit', {}).get('author', {}).get('date', {})
-        results.append({'Date': dt_value})
-    print(results)
+        date_object = datetime.strptime(dt_value, '%Y-%m-%dT%H:%M:%SZ')
+        minutes = date_object.minute
+        results.append({'minutes': minutes})
     return jsonify(results=results)
 
 
@@ -66,12 +67,6 @@ def commits():
 def mescommits():
     return render_template("commits.html")
 
-
-@app.route('/extract-minutes/<date_string>')
-def extract_minutes(date_string):
-    date_object = datetime.strptime(date_string, '%Y-%m-%dT%H:%M:%SZ')
-    minutes = date_object.minute
-    return jsonify({'minutes': minutes})
 
 
 if __name__ == "__main__":
