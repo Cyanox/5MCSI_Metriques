@@ -4,7 +4,7 @@ from flask import json
 from datetime import datetime
 from urllib.request import urlopen
 import sqlite3
-                                                                                                                                       
+# Maj repo                                                                                                                                       
 app = Flask(__name__)                                                                                                                  
                                                                                                                                        
 @app.route('/')
